@@ -6,14 +6,14 @@
   <title>SCHUHETECH — Інтернет-магазин стильного та технологічного взуття</title>
   <meta name="description" content="Інтернет-магазин сучасного взуття SCHUHETECH: кросівки, кеди та лофери провідних брендів із зручним підбором за розміром і доставкою по Україні." />
 
-  <!-- Google Analytics 4 (замініть G-XXXXXXXXXX на свій реальний ідентифікатор) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <!-- Google Tag Manager -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WLT2M9JF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
   </script>
+  <!-- End Google Tag Manager -->
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -862,9 +862,12 @@
       document.getElementById("selectedModel").value = `${name} (${sku})`;
       showToast(`«${name}» додано до форми замовлення!`);
 
-      if (typeof gtag === 'function') {
-        gtag('event', 'add_to_cart', { item_name: name, item_id: sku });
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'add_to_cart',
+        item_name: name,
+        item_id: sku
+      });
     }
 
     function scrollToOrder() {
@@ -875,9 +878,11 @@
       e.preventDefault();
       const name = document.getElementById("clientName").value;
       showToast(`Дякуємо, ${name}! Заявку на підбір взуття прийнято.`);
-      if (typeof gtag === 'function') {
-        gtag('event', 'generate_lead', { event_category: 'order_form' });
-      }
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({
+        event: 'generate_lead',
+        event_category: 'order_form'
+      });
       e.target.reset();
     }
 
