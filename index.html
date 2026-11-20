@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SCHUHETECH — Інтернет-магазин стильного та технологічного взуття</title>
+  <meta name="description" content="Інтернет-магазин сучасного взуття SCHUHETECH: кросівки, кеди та лофери провідних брендів із зручним підбором за розміром і доставкою по Україні." />
+
+  <!-- Google Analytics 4 (замініть G-XXXXXXXXXX на свій реальний ідентифікатор) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-cream: #fdf8f5;
+      --bg-card: #ffffff;
+      --pastel-pink: #f8e1e7;
+      --pastel-lavender: #ebe4f7;
+      --pastel-mint: #e1f3ee;
+      --pastel-peach: #fceade;
+      --accent-rose: #d97b93;
+      --accent-rose-dark: #c0627b;
+      --accent-plum: #5c4b66;
+      --text-main: #3d3544;
+      --text-muted: #7a6f85;
+      --border-soft: #efe3ea;
+      --shadow-soft: 0 10px 28px rgba(92, 75, 102, 0.07);
+      --radius-lg: 22px;
+      --radius-md: 14px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Nunito', sans-serif;
+      background-color: var(--bg-cream);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    /* Навігація */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(253, 248, 245, 0.88);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-soft);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .logo {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.5rem;
+      letter-spacing: 1px;
+      color: var(--accent-plum);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .logo span {
+      background: linear-gradient(135deg, var(--pastel-pink), var(--pastel-lavender));
+      padding: 4px 10px;
+      border-radius: 10px;
+      color: var(--accent-rose-dark);
+      font-size: 0.95rem;
+    }
+
+    nav {
+      display: flex;
+      gap: 24px;
+      align-items: center;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--text-main);
+      font-weight: 600;
+      font-size: 0.98rem;
+      transition: color 0.2s;
+    }
+
+    nav a:hover {
+      color: var(--accent-rose-dark);
+    }
+
+    .cart-pill {
+      background: var(--pastel-pink);
+      color: var(--accent-rose-dark);
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 0.92rem;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .cart-pill:hover {
+      background: #f3cfd8;
+      transform: translateY(-1px);
+    }
+
+    /* Головний банер */
+    .hero {
+      max-width: 1200px;
+      margin: 28px auto;
+      padding: 0 24px;
+    }
+
+    .hero-box {
+      background: linear-gradient(135deg, var(--pastel-pink) 0%, var(--pastel-lavender) 52%, var(--pastel-mint) 100%);
+      border-radius: 30px;
+      padding: 56px 48px;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 32px;
+      align-items: center;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(255, 255, 255, 0.78);
+      color: var(--accent-rose-dark);
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.5rem;
+      line-height: 1.2;
+      color: var(--accent-plum);
+      margin-bottom: 16px;
+    }
+
+    .hero p {
+      font-size: 1.08rem;
+      color: var(--text-main);
+      margin-bottom: 28px;
+      max-width: 540px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--accent-rose);
+      color: #fff;
+      padding: 14px 28px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+      box-shadow: 0 6px 18px rgba(217, 123, 147, 0.32);
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent-rose-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: rgba(255, 255, 255, 0.85);
+      color: var(--accent-plum);
+      padding: 14px 24px;
+      border-radius: 999px;
+      text-decoration: none;
+      font-weight: 700;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover {
+      background: #ffffff;
+    }
+
+    .hero-visual {
+      background: rgba(255, 255, 255, 0.72);
+      border-radius: 24px;
+      padding: 28px;
+      text-align: center;
+      backdrop-filter: blur(8px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+    }
+
+    .hero-emoji {
+      font-size: 5rem;
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    .hero-visual h3 {
+      font-family: 'Montserrat', sans-serif;
+      color: var(--accent-plum);
+      margin-bottom: 6px;
+    }
+
+    .hero-visual p {
+      font-size: 0.92rem;
+      color: var(--text-muted);
+      margin: 0 auto;
+    }
+
+    /* Секції */
+    section {
+      max-width: 1200px;
+      margin: 54px auto;
+      padding: 0 24px;
+    }
+
+    .section-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.85rem;
+      color: var(--accent-plum);
+      margin-bottom: 8px;
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 26px;
+    }
+
+    /* Панель мультифільтрації (для ЛР №3) */
+    .filter-panel {
+      background: var(--bg-card);
+      border: 1px solid var(--border-soft);
+      border-radius: var(--radius-lg);
+      padding: 22px 24px;
+      margin-bottom: 28px;
+      box-shadow: var(--shadow-soft);
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px;
+      align-items: end;
+    }
+
+    .filter-group label {
+      display: block;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 6px;
+    }
+
+    .filter-group select,
+    .filter-group input {
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      background: var(--bg-cream);
+      font-family: inherit;
+      font-size: 0.95rem;
+      color: var(--text-main);
+      outline: none;
+    }
+
+    .filter-group select:focus,
+    .filter-group input:focus {
+      border-color: var(--accent-rose);
+    }
+
+    .filter-status {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 18px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .reset-btn {
+      background: var(--pastel-lavender);
+      color: var(--accent-plum);
+      border: none;
+      padding: 8px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+    }
+
+    /* Сітка товарів */
+    .catalog-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 24px;
+    }
+
+    .product-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-soft);
+      padding: 18px;
+      box-shadow: var(--shadow-soft);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 34px rgba(92, 75, 102, 0.12);
+    }
+
+    .product-img-box {
+      height: 185px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .bg-p1 { background: linear-gradient(135deg, #fce4ec, #f3e5f5); }
+    .bg-p2 { background: linear-gradient(135deg, #e0f2f1, #e8eaf6); }
+    .bg-p3 { background: linear-gradient(135deg, #fff3e0, #fce4ec); }
+    .bg-p4 { background: linear-gradient(135deg, #ede7f6, #e1f5fe); }
+
+    .product-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .tag-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      background: rgba(255, 255, 255, 0.9);
+      color: var(--accent-plum);
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 0.78rem;
+      font-weight: 700;
+    }
+
+    .sku {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      margin-bottom: 4px;
+    }
+
+    .product-card h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.08rem;
+      color: var(--accent-plum);
+      margin-bottom: 8px;
+    }
+
+    .specs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 14px;
+    }
+
+    .spec-chip {
+      background: var(--bg-cream);
+      border: 1px solid var(--border-soft);
+      padding: 3px 9px;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      color: var(--text-main);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: auto;
+      padding-top: 12px;
+      border-top: 1px dashed var(--border-soft);
+    }
+
+    .price {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 1.18rem;
+      color: var(--accent-rose-dark);
+    }
+
+    .buy-btn {
+      background: var(--pastel-mint);
+      color: #2b6658;
+      border: none;
+      padding: 9px 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s, transform 0.15s;
+    }
+
+    .buy-btn:hover {
+      background: #cbeae1;
+      transform: scale(1.03);
+    }
+
+    /* Форма індивідуального підбору розміру / замовлення */
+    .order-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 28px;
+    }
+
+    .pastel-card {
+      background: var(--bg-card);
+      border-radius: var(--radius-lg);
+      padding: 32px;
+      border: 1px solid var(--border-soft);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .pastel-card.lavender-tint {
+      background: linear-gradient(160deg, #ffffff 0%, var(--pastel-lavender) 100%);
+    }
+
+    .form-row {
+      margin-bottom: 16px;
+    }
+
+    .form-row label {
+      display: block;
+      font-weight: 700;
+      font-size: 0.9rem;
+      margin-bottom: 6px;
+      color: var(--accent-plum);
+    }
+
+    .form-row input,
+    .form-row select,
+    .form-row textarea {
+      width: 100%;
+      padding: 12px 14px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-soft);
+      background: #ffffff;
+      font-family: inherit;
+      font-size: 0.95rem;
+    }
+
+    .contact-list {
+      list-style: none;
+      margin-top: 18px;
+    }
+
+    .contact-list li {
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(92, 75, 102, 0.08);
+      display: flex;
+      gap: 10px;
+      align-items: center;
+    }
+
+    /* Сповіщення (Toast) */
+    .toast {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--accent-plum);
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 16px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+      font-weight: 600;
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(15px);
+      transition: all 0.3s ease;
+      z-index: 999;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    footer {
+      background: var(--pastel-lavender);
+      color: var(--accent-plum);
+      text-align: center;
+      padding: 28px 20px;
+      margin-top: 64px;
+      border-top: 1px solid var(--border-soft);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 820px) {
+      .hero-box, .order-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero h1 {
+        font-size: 1.95rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <a href="#top" class="logo">SCHUHETECH <span>Shoes & Comfort</span></a>
+      <nav>
+        <a href="#top">Головна</a>
+        <a href="#catalog">Каталог (8)</a>
+        <a href="#fitting">Підбір розміру</a>
+        <a href="#contacts">Контакти</a>
+      </nav>
+      <button class="cart-pill" onclick="scrollToOrder()">Кошик: <span id="cartCount">0</span></button>
+    </div>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div class="hero-box">
+        <div>
+          <span class="hero-badge">Нова колекція • Комфорт у кожному кроці</span>
+          <h1>Стильне та легке взуття у SCHUHETECH</h1>
+          <p>Підбирайте улюблені кросівки, кеди та повсякденні пари за брендом, сезоном і точним розміром стопи. Швидка доставка по Україні та примірка.</p>
+          <div class="hero-actions">
+            <a href="#catalog" class="btn-primary">Перейти до каталогу</a>
+            <a href="#fitting" class="btn-secondary">Допомога з розміром</a>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <span class="hero-emoji">👟</span>
+          <h3>Гарантія якості та комфорту</h3>
+          <p>Анатомічна устілка, дихаючі матеріали та перевірені світові бренди в наявності.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- КАТАЛОГ З ФІЛЬТРАМИ -->
+    <section id="catalog">
+      <h2 class="section-title">Каталог взуття SCHUHETECH</h2>
+      <p class="section-subtitle">Використовуйте фільтри за категорією, брендом, розміром або ціною для швидкого пошуку своєї пари</p>
+
+      <div class="filter-panel">
+        <div class="filter-group">
+          <label for="filterCategory">Категорія</label>
+          <select id="filterCategory" onchange="applyFilters()">
+            <option value="all">Усі категорії</option>
+            <option value="Кросівки">Кросівки</option>
+            <option value="Кеди">Кеди</option>
+            <option value="Лофери">Лофери</option>
+            <option value="Черевики">Черевики</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterBrand">Бренд</label>
+          <select id="filterBrand" onchange="applyFilters()">
+            <option value="all">Усі бренди</option>
+            <option value="Nike">Nike</option>
+            <option value="New Balance">New Balance</option>
+            <option value="Adidas">Adidas</option>
+            <option value="Puma">Puma</option>
+            <option value="Converse">Converse</option>
+            <option value="Timberland">Timberland</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="filterSize">Розмір (EU)</label>
+          <select id="filterSize" onchange="applyFilters()">
+            <option value="all">Усі розміри (36–44)</option>
+            <option value="36">36 EU (23 см)</option>
+            <option value="37">37 EU (23.5 см)</option>
+            <option value="38">38 EU (24 см)</option>
+            <option value="39">39 EU (25 см)</option>
+            <option value="40">40 EU (25.5 см)</option>
+            <option value="41">41 EU (26 см)</option>
+            <option value="42">42 EU (26.5 см)</option>
+            <option value="43">43 EU (27.5 см)</option>
+          </select>
+        </div>
+
+        <div class="filter-group">
+          <label for="sortPrice">Сортування за ціною</label>
+          <select id="sortPrice" onchange="applyFilters()">
+            <option value="default">За замовчуванням</option>
+            <option value="asc">Від дешевших до дорожчих</option>
+            <option value="desc">Від дорожчих до дешевших</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="filter-status">
+        <span>Знайдено моделей: <strong id="foundCount">8</strong></span>
+        <button class="reset-btn" onclick="resetFilters()">Скинути фільтри</button>
+      </div>
+
+      <div class="catalog-grid" id="productGrid"></div>
+    </section>
+
+    <!-- ПІДБІР РОЗМІРУ ТА КОНТАКТИ -->
+    <section id="fitting">
+      <div class="order-grid">
+        <div class="pastel-card">
+          <h2 class="section-title" style="font-size: 1.5rem;">Оформлення замовлення та підбір розміру</h2>
+          <p class="section-subtitle" style="margin-bottom: 18px;">Залиште заявку, і консультант SCHUHETECH перевірить довжину устілки перед відправкою.</p>
+
+          <form id="orderForm" onsubmit="submitOrder(event)">
+            <div class="form-row">
+              <label for="clientName">Ваше ім'я</label>
+              <input type="text" id="clientName" placeholder="Наприклад: Олена" required />
+            </div>
+            <div class="form-row">
+              <label for="clientPhone">Номер телефону</label>
+              <input type="tel" id="clientPhone" placeholder="+38 (0__) ___-__-__" required />
+            </div>
+            <div class="form-row">
+              <label for="selectedModel">Обрана модель або довжина стопи (см)</label>
+              <input type="text" id="selectedModel" placeholder="Наприклад: New Balance 530 Pastel, 24.5 см" required />
+            </div>
+            <button type="submit" class="btn-primary" style="width: 100%;">Надіслати замовлення</button>
+          </form>
+        </div>
+
+        <div class="pastel-card lavender-tint" id="contacts">
+          <h2 class="section-title" style="font-size: 1.5rem;">Контакти шоуруму SCHUHETECH</h2>
+          <p class="section-subtitle" style="margin-bottom: 12px;">Завітайте на примірку або замовляйте доставку Новою Поштою по всій Україні.</p>
+
+          <ul class="contact-list">
+            <li>📍 <strong>Адреса:</strong> м. Одеса, вул. Дерибасівська, 14 (ТЦ «Європа», 2 поверх)</li>
+            <li>📞 <strong>Телефон:</strong> +38 (067) 482-19-30</li>
+            <li>🕒 <strong>Графік роботи:</strong> Пн–Нд: 10:00 – 20:00</li>
+            <li>🚚 <strong>Доставка:</strong> Безкоштовно при замовленні від 3 500 грн</li>
+            <li>✨ <strong>Обмін та повернення:</strong> Протягом 14 днів без зайвих питань</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 Інтернет-магазин взуття <strong>SCHUHETECH</strong>. Усі права захищено.</p>
+    <p style="font-size: 0.85rem; margin-top: 6px; opacity: 0.85;">Навчальний проєкт з дисципліни «Прикладні інформаційно-аналітичні рішення в маркетингу» (ОНЕУ)</p>
+  </footer>
+
+  <div class="toast" id="toast">Товар додано до замовлення!</div>
+
+  <script>
+    const products = [
+      {
+        id: 1,
+        name: "Кросівки Nike Air Max 90 Soft Pink",
+        sku: "ST-NK-901",
+        category: "Кросівки",
+        brand: "Nike",
+        color: "Пудровий рожевий",
+        sizes: ["36", "37", "38", "39", "40"],
+        price: 4290,
+        badge: "Хіт сезону",
+        bg: "bg-p1",
+        img: "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 2,
+        name: "Кросівки New Balance 530 Cream Lavender",
+        sku: "ST-NB-530",
+        category: "Кросівки",
+        brand: "New Balance",
+        color: "Молочний / Лаванда",
+        sizes: ["37", "38", "39", "40", "41", "42"],
+        price: 4650,
+        badge: "Топ продажів",
+        bg: "bg-p4",
+        img: "https://images.unsplash.com/photo-1539185441755-769473a23570?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 3,
+        name: "Кеди Adidas Campus 00s Pastel Mint",
+        sku: "ST-AD-008",
+        category: "Кеди",
+        brand: "Adidas",
+        color: "М'ятний пастель",
+        sizes: ["36", "37", "38", "40", "41"],
+        price: 3890,
+        badge: "Новинка",
+        bg: "bg-p2",
+        img: "https://images.unsplash.com/photo-1525966222134-fcfa99b8ae77?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 4,
+        name: "Кросівки Puma Cali Dream Peach",
+        sku: "ST-PM-214",
+        category: "Кросівки",
+        brand: "Puma",
+        color: "Ніжний персик",
+        sizes: ["36", "38", "39", "40"],
+        price: 3490,
+        badge: "-15% Знижка",
+        bg: "bg-p3",
+        img: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 5,
+        name: "Кеди Converse Chuck 70 Vanilla Sky",
+        sku: "ST-CV-070",
+        category: "Кеди",
+        brand: "Converse",
+        color: "Ванільний кремовий",
+        sizes: ["36", "37", "38", "39", "41", "42", "43"],
+        price: 3150,
+        badge: "Класика",
+        bg: "bg-p3",
+        img: "https://images.unsplash.com/photo-1607522370275-f14206abe5d3?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 6,
+        name: "Кросівки Nike Dunk Low Lilac Mist",
+        sku: "ST-NK-412",
+        category: "Кросівки",
+        brand: "Nike",
+        color: "Світла лаванда",
+        sizes: ["37", "38", "39", "40", "41"],
+        price: 4890,
+        badge: "Лімітована серія",
+        bg: "bg-p4",
+        img: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 7,
+        name: "Лофери New Balance Suede Sand",
+        sku: "ST-NB-774",
+        category: "Лофери",
+        brand: "New Balance",
+        color: "Пісочний беж",
+        sizes: ["37", "38", "39", "40"],
+        price: 4100,
+        badge: "М'яка замша",
+        bg: "bg-p1",
+        img: "https://images.unsplash.com/photo-1560769629-975ec94e6a86?auto=format&fit=crop&w=600&q=80"
+      },
+      {
+        id: 8,
+        name: "Черевики Timberland Stone Pastel",
+        sku: "ST-TB-605",
+        category: "Черевики",
+        brand: "Timberland",
+        color: "Світлий пудровий",
+        sizes: ["38", "39", "40", "41", "42", "43"],
+        price: 5490,
+        badge: "Водостійкі",
+        bg: "bg-p2",
+        img: "https://images.unsplash.com/photo-1520639888713-7851133b1ed0?auto=format&fit=crop&w=600&q=80"
+      }
+    ];
+
+    let cartItems = 0;
+
+    function renderProducts(list) {
+      const grid = document.getElementById("productGrid");
+      document.getElementById("foundCount").textContent = list.length;
+
+      if (list.length === 0) {
+        grid.innerHTML = `<p style="grid-column: 1/-1; text-align: center; padding: 30px; color: var(--text-muted);">За обраними параметрами моделей не знайдено. Спробуйте змінити фільтри.</p>`;
+        return;
+      }
+
+      grid.innerHTML = list.map(item => `
+        <article class="product-card">
+          <div>
+            <div class="product-img-box ${item.bg}">
+              <span class="tag-badge">${item.badge}</span>
+              <img src="${item.img}" alt="${item.name}" loading="lazy" />
+            </div>
+            <div class="sku">Артикул: ${item.sku} • ${item.brand}</div>
+            <h3>${item.name}</h3>
+            <div class="specs">
+              <span class="spec-chip">${item.category}</span>
+              <span class="spec-chip">${item.color}</span>
+              <span class="spec-chip">Розміри: ${item.sizes[0]}–${item.sizes[item.sizes.length - 1]}</span>
+            </div>
+          </div>
+          <div class="card-footer">
+            <span class="price">${item.price.toLocaleString('uk-UA')} грн</span>
+            <button class="buy-btn" onclick="addToCart('${item.name}', '${item.sku}')">Купити</button>
+          </div>
+        </article>
+      `).join("");
+    }
+
+    function applyFilters() {
+      const cat = document.getElementById("filterCategory").value;
+      const brand = document.getElementById("filterBrand").value;
+      const size = document.getElementById("filterSize").value;
+      const sort = document.getElementById("sortPrice").value;
+
+      let filtered = products.filter(p => {
+        const matchCat = cat === "all" || p.category === cat;
+        const matchBrand = brand === "all" || p.brand === brand;
+        const matchSize = size === "all" || p.sizes.includes(size);
+        return matchCat && matchBrand && matchSize;
+      });
+
+      if (sort === "asc") {
+        filtered.sort((a, b) => a.price - b.price);
+      } else if (sort === "desc") {
+        filtered.sort((a, b) => b.price - a.price);
+      }
+
+      renderProducts(filtered);
+    }
+
+    function resetFilters() {
+      document.getElementById("filterCategory").value = "all";
+      document.getElementById("filterBrand").value = "all";
+      document.getElementById("filterSize").value = "all";
+      document.getElementById("sortPrice").value = "default";
+      renderProducts(products);
+    }
+
+    function addToCart(name, sku) {
+      cartItems++;
+      document.getElementById("cartCount").textContent = cartItems;
+      document.getElementById("selectedModel").value = `${name} (${sku})`;
+      showToast(`«${name}» додано до форми замовлення!`);
+
+      if (typeof gtag === 'function') {
+        gtag('event', 'add_to_cart', { item_name: name, item_id: sku });
+      }
+    }
+
+    function scrollToOrder() {
+      document.getElementById("fitting").scrollIntoView({ behavior: "smooth" });
+    }
+
+    function submitOrder(e) {
+      e.preventDefault();
+      const name = document.getElementById("clientName").value;
+      showToast(`Дякуємо, ${name}! Заявку на підбір взуття прийнято.`);
+      if (typeof gtag === 'function') {
+        gtag('event', 'generate_lead', { event_category: 'order_form' });
+      }
+      e.target.reset();
+    }
+
+    function showToast(text) {
+      const toast = document.getElementById("toast");
+      toast.textContent = text;
+      toast.classList.add("show");
+      setTimeout(() => toast.classList.remove("show"), 3200);
+    }
+
+    renderProducts(products);
+  </script>
+</body>
+</html>
